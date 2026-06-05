@@ -1,0 +1,32 @@
+schema: spec-driven
+
+context: |
+  Projeto: Condomínio Legal — App Mobile (React Native)
+  Stack: React Native bare (CLI), TypeScript strict, SEM Expo — execução via
+  `npm install` + `npx react-native run-android` / `run-ios`. (O ARD detalhado de
+  stack/build/navegação virá na Fase 2 com o Dev Mobile; estas specs não pressupõem Expo.)
+  Domínio: SaaS de gestão condominial multi-tenant. 6 perfis (sindico, administradora,
+  proprietario, inquilino, porteiro, conselho) e 7 módulos (cadastro, financeiro,
+  comunicacao, reservas-areas-comuns, assembleias-votacoes, ocorrencias-manutencao,
+  portaria-acessos).
+  O contrato REST/JSON do backend (repo condominio-legal-api, change condominio-backend-scope:
+  7 capacidades, 39 requisitos MUST) é a FONTE DA VERDADE. O frontend web
+  (repo condominio-legal-web, change condominio-frontend-scope) é a referência de
+  comportamento por tela/perfil. Toda regra de negócio do backend tem cobertura observável
+  no mobile (paridade de requisitos).
+  Cada spec mobile descreve: (1) telas/fluxos por módulo e perfil, (2) comportamento da tela
+  (estados loading/erro/vazio/sucesso adaptados a mobile, validações, formulários, navegação
+  stack/tabs por perfil, permissões por perfil) e (3) a camada de serviços que consome a API
+  do backend (clients tipados por endpoint, tipos TypeScript, anexação de token/tenant,
+  tratamento de erro). Erros do backend seguem { code, message, details } com status
+  400/401/403/404/409/422/500. Paginação cursor-based.
+  Concerns transversais mobile: armazenamento seguro de token (Keychain iOS / Keystore Android),
+  guarda de navegação, push nativo (FCM Android / APNs iOS), câmera/galeria para anexos.
+  Isolamento multi-tenant e autorização por perfil presentes em todas as capacidades — o app
+  nunca envia tenant arbitrário; o `condominioId` vem dos claims do token.
+  Convenções: requisitos no formato OpenSpec (Requirement SHALL/MUST + Scenarios
+  GIVEN/WHEN/THEN), cobrindo happy path, edge cases e estados de erro. Não especificar
+  detalhe de implementação de código — descrever comportamento e resultado observável.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
