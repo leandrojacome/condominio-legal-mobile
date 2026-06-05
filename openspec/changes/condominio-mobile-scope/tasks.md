@@ -11,10 +11,10 @@ The mobile implementation MUST follow this delivery/archive chain:
 
 ## UXDesigner
 
-- [ ] Define the mobile information architecture for the 6 profiles (`sindico`, `administradora`, `proprietario`, `inquilino`, `porteiro`, `conselho`).
-- [ ] Produce wireframes/flows for login, condo switcher, protected navigation, and the 7 module areas covered by the specs.
-- [ ] Specify mobile states for loading, error, empty, success, pull-to-refresh, pagination, permission denial, and expired session.
-- [ ] Specify native interaction states for push opt-in, camera/gallery permissions, upload progress, and deep links from notifications.
+- [x] Define the mobile information architecture for the 6 profiles (`sindico`, `administradora`, `proprietario`, `inquilino`, `porteiro`, `conselho`) in `DESIGN.md`.
+- [x] Produce flows for login, condo switcher, protected navigation, and the 7 module areas covered by the specs in `DESIGN.md`.
+- [x] Specify mobile states for loading, error, empty, success, pull-to-refresh, pagination, permission denial, and expired session in `DESIGN.md`.
+- [x] Specify native interaction states for push opt-in, camera/gallery permissions, upload progress, and deep links from notifications in `DESIGN.md`.
 
 ## Dev Mobile
 
